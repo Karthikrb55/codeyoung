@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    /* Enforce Dark Theme Globally */
+    --background: 225 44% 4%; /* #05070D */
+    --foreground: 210 40% 98%;
+
+    --card: 221 39% 11%; /* #111827 */
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 225 49% 8%; /* #0B1020 */
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 239 84% 67%; /* Electric Indigo */
+    --primary-foreground: 0 0% 100%;
+ 
+    --secondary: 189 94% 43%; /* Cyan */
+    --secondary-foreground: 0 0% 100%;
+ 
+    --muted: 221 39% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 239 84% 67%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 348 100% 61%; /* Rose */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 221 39% 20%;
+    --input: 221 39% 20%;
+    --ring: 239 84% 67%;
+    
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    background-image: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+/* Glass Utilities */
+@layer utilities {
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-white/5 shadow-2xl;
+  }
+  .glass-elevated {
+    @apply bg-card/80 backdrop-blur-2xl border border-white/10 shadow-2xl;
+  }
+  .glass-card {
+    @apply bg-gradient-to-b from-white/[0.05] to-transparent backdrop-blur-md border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.4)];
+  }
+  .text-glow {
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  }
+}
